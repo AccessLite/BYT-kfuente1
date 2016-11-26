@@ -15,9 +15,10 @@
 		9C12E4F31DE5F8C2005EFDF0 /* Boarding_PassUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C12E4F21DE5F8C2005EFDF0 /* Boarding_PassUITests.swift */; };
 		9C12E53F1DE68AD2005EFDF0 /* FOAAS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C12E53E1DE68AD2005EFDF0 /* FOAAS.swift */; };
 		9C12E5411DE68B21005EFDF0 /* APIManager(FOAAS).swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C12E5401DE68B21005EFDF0 /* APIManager(FOAAS).swift */; };
-		9C12E5431DE68B7D005EFDF0 /* protocols(FOAAS).swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C12E5421DE68B7D005EFDF0 /* protocols(FOAAS).swift */; };
+		9C12E5431DE68B7D005EFDF0 /* Protocols(FOAAS).swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C12E5421DE68B7D005EFDF0 /* Protocols(FOAAS).swift */; };
 		9C12E5451DE68BE2005EFDF0 /* FOAASOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C12E5441DE68BE2005EFDF0 /* FOAASOperation.swift */; };
 		9C12E5471DE68C26005EFDF0 /* FOAASFIeld.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C12E5461DE68C26005EFDF0 /* FOAASFIeld.swift */; };
+		9C12E54F1DE95B0D005EFDF0 /* DataManager(FOAAS).swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C12E54E1DE95B0D005EFDF0 /* DataManager(FOAAS).swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,9 +53,10 @@
 		9C12E4F41DE5F8C3005EFDF0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9C12E53E1DE68AD2005EFDF0 /* FOAAS.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FOAAS.swift; sourceTree = "<group>"; };
 		9C12E5401DE68B21005EFDF0 /* APIManager(FOAAS).swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "APIManager(FOAAS).swift"; sourceTree = "<group>"; };
-		9C12E5421DE68B7D005EFDF0 /* protocols(FOAAS).swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "protocols(FOAAS).swift"; sourceTree = "<group>"; };
+		9C12E5421DE68B7D005EFDF0 /* Protocols(FOAAS).swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Protocols(FOAAS).swift"; sourceTree = "<group>"; };
 		9C12E5441DE68BE2005EFDF0 /* FOAASOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FOAASOperation.swift; sourceTree = "<group>"; };
 		9C12E5461DE68C26005EFDF0 /* FOAASFIeld.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FOAASFIeld.swift; sourceTree = "<group>"; };
+		9C12E54E1DE95B0D005EFDF0 /* DataManager(FOAAS).swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DataManager(FOAAS).swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,6 +148,7 @@
 			isa = PBXGroup;
 			children = (
 				9C12E5401DE68B21005EFDF0 /* APIManager(FOAAS).swift */,
+				9C12E54E1DE95B0D005EFDF0 /* DataManager(FOAAS).swift */,
 			);
 			name = "API Manager ";
 			path = ..;
@@ -154,7 +157,7 @@
 		9C12E54C1DE68D5F005EFDF0 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
-				9C12E5421DE68B7D005EFDF0 /* protocols(FOAAS).swift */,
+				9C12E5421DE68B7D005EFDF0 /* Protocols(FOAAS).swift */,
 			);
 			name = Protocols;
 			path = ..;
@@ -307,9 +310,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				9C12E53F1DE68AD2005EFDF0 /* FOAAS.swift in Sources */,
-				9C12E5431DE68B7D005EFDF0 /* protocols(FOAAS).swift in Sources */,
+				9C12E5431DE68B7D005EFDF0 /* Protocols(FOAAS).swift in Sources */,
 				9C12E4D31DE5F8C2005EFDF0 /* AppDelegate.swift in Sources */,
 				9C12E5471DE68C26005EFDF0 /* FOAASFIeld.swift in Sources */,
+				9C12E54F1DE95B0D005EFDF0 /* DataManager(FOAAS).swift in Sources */,
 				9C12E5411DE68B21005EFDF0 /* APIManager(FOAAS).swift in Sources */,
 				9C12E5451DE68BE2005EFDF0 /* FOAASOperation.swift in Sources */,
 			);
@@ -556,6 +560,7 @@
 				9C12E4F91DE5F8C3005EFDF0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		9C12E4FA1DE5F8C3005EFDF0 /* Build configuration list for PBXNativeTarget "Boarding PassTests" */ = {
 			isa = XCConfigurationList;
@@ -564,6 +569,7 @@
 				9C12E4FC1DE5F8C3005EFDF0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		9C12E4FD1DE5F8C3005EFDF0 /* Build configuration list for PBXNativeTarget "Boarding PassUITests" */ = {
 			isa = XCConfigurationList;
@@ -572,6 +578,7 @@
 				9C12E4FF1DE5F8C3005EFDF0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

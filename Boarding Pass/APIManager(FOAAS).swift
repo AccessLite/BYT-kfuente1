@@ -16,15 +16,15 @@ class FoaasAPIManager {
         request.httpMethod = "GET"
         request.addValue("application/json", forHTTPHeaderField: "Accept")
         
-        defaultSession.dataTask(with: request){ (someData: Data?, _, someError: Error?) in
+        defaultSession.dataTask(with: request){ (data: Data?, _, someError: Error?) in
             if someError != nil{
                 print("Error with foaas url request \(someError!)")
             }
             
-            if someData != nil{
+            if data != nil{
                 do{
                     
-                    let rawData = try JSONSerialization.jsonObject(with: someData!, options: []) as? [String: AnyObject]
+                    let rawData = try JSONSerialization.jsonObject(with: data!, options: []) as? [String: AnyObject]
                     
                     if let json = rawData{
                         completion(Foaas(json: json))
@@ -35,7 +35,33 @@ class FoaasAPIManager {
                     print("Error serializing foaas data: \(error)")
                 }
             }
-            }.resume()
+        }.resume()
     }
     
+    internal class func getOperations(completion: @escaping ([FoaasOperation]?)->Void) {
+        var request: URLRequest = URLRequest(url: URL(string: "http://www.foaas.com/operations")!)
+        request.httpMethod = "GET"
+        request.addValue("application/json", forHTTPHeaderField: "Accept")
+        
+        defaultSession.dataTask(with: request){(data: Data?, _ , error: Error?) in
+            if error != nil {
+                print("Error with [foassOperation] url request [foassOperation] \(error)")
+            }
+            if data != nil {
+                do {
+                    let json = try JSONSerialization.jsonObject(with: data!, options: []) as? [[String:AnyObject]]
+                    var arrayofFoaasOpertions = [FoaasOperation]()
+                    for operation in json! {
+                        arrayofFoaasOpertions.append(FoaasOperation(json: operation)!)
+                    }
+                    completion(arrayofFoaasOpertions)
+                }
+                catch {
+                    print("error in converting operation data \(error)")
+                }
+                
+            }
+            
+        }.resume()
+    }
 }

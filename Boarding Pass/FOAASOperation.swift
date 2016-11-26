@@ -7,7 +7,7 @@
 //
 
 import Foundation
-class FoaasOperation {
+class FoaasOperation: JSONConvertible, DataConvertible {
   
     let name: String
     let url: String
@@ -20,14 +20,14 @@ class FoaasOperation {
     }
     
     convenience required init?(json: [String : AnyObject]) {
-        guard let name: String = json["name"] as? String,
-            let url: String = json["url"] as? String,
-            let fields: [[String: AnyObject]] = json["fields"] as? [[String: AnyObject]] else { return nil }
+        guard let name: String = json["name"] as? String else {return nil}
+        guard let url: String = json["url"] as? String else {return nil}
+        guard let fields: [[String: AnyObject]] = json["fields"] as? [[String: AnyObject]] else { return nil }
         
         var allFields: [FoaasField] = []
         
-        for element in fields{
-            if let foaas = FoaasField(json: element){
+        for field in fields{
+            if let foaas = FoaasField(json: field){
                 allFields.append(foaas)
             }
         }
@@ -36,14 +36,36 @@ class FoaasOperation {
     
     convenience required init?(data: Data) {
         do {
-            let rawData: AnyObject = try JSONSerialization.jsonObject(with: data, options: []) as AnyObject
+            let data: AnyObject = try JSONSerialization.jsonObject(with: data, options: []) as AnyObject
             
-            guard let json: [String: AnyObject] = rawData as? [String: AnyObject] else { return nil }
+            guard let json: [String: AnyObject] = data as? [String: AnyObject] else { return nil }
             
             self.init(json: json)
         } catch {
-            print("Error initialization parsing data in FoaasOperation: \(error)")
+            print("Error parsing data in FoaasOperation: \(error)")
         }
         return nil
     }
+    
+    func toJson() -> [String : AnyObject] {
+        return [
+            "name": self.name as AnyObject,
+            "url": self.url as AnyObject,
+            //"fields": self.fields.flatMap{0.toJson()} as AnyObject
+        ]
+    }
+    
+    func toData() throws -> Data {
+        return try JSONSerialization.data(withJSONObject: self.toJson(), options: [])
+    }
 }
+
+    
+
+
+
+
+
+
+
+

@@ -7,7 +7,7 @@
 //
 
 import Foundation
-class FoaasField: CustomStringConvertible {
+class FoaasField: JSONConvertible, CustomStringConvertible {
  
     let name: String
     let field: String
@@ -27,6 +27,10 @@ class FoaasField: CustomStringConvertible {
         self.init(name: name, field: field)
     }
     
-
+    func toJson() -> [String : AnyObject] {
+        return [
+            "name": self.name as AnyObject,
+            "field": self.field as AnyObject]
+    }
     
 }

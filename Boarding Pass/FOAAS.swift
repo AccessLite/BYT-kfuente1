@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Foaas: CustomStringConvertible {
+class Foaas: JSONConvertible, CustomStringConvertible {
     
     let message: String
     let subtitle: String
@@ -22,10 +22,15 @@ class Foaas: CustomStringConvertible {
     }
     
     convenience required init?(json: [String : AnyObject]) {
-        guard let message: String = json["message"] as? String,
-            let subtitle: String = json["subtitle"] as? String else{ return nil }
+        guard let message: String = json["message"] as? String else{ return nil }
+        guard let subtitle: String = json["subtitle"] as? String else{ return nil }
         self.init(message: message, subtitle: subtitle)
     }
     
-    
+    func toJson() -> [String : AnyObject] {
+        return [
+        "message": self.message as AnyObject,
+        "subtitle": self.subtitle as AnyObject
+        ]
+    }
 }
